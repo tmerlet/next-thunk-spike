@@ -12,10 +12,10 @@ import withRedux from "next-redux-wrapper";
 import Page from "../components/Page";
 
 export class Counter extends Component {
-  static getInitialProps({ store, isServer }) {
+  static async getInitialProps({ store, isServer }) {
     store.dispatch(serverRenderClock(isServer));
     store.dispatch(addCount());
-    store.dispatch(fetchData()) // comment for client side render
+    await store.dispatch(fetchData()) // comment for client side render
   }
 
   componentDidMount() {
