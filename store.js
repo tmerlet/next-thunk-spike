@@ -5,11 +5,6 @@ import thunkMiddleware from "redux-thunk";
 import reducers from "./redux/reducers";
 
 const exampleInitialState = {
-  clock: {
-    lastUpdate: 0,
-    light: false,
-    count: 0
-  },
   productDetails: {
     debug: "Initial state"
   }

@@ -27,18 +27,15 @@ export const productDetailsReducer = (state = {}, action) => {
       return {
         ...state,
         isFetching: true,
-        debug: "GET_PRODUCT_DETAILS action"
+        debug: "A) first action - GET_PRODUCT_DETAILS"
       };
     }
     case GET_PRODUCT_DETAILS_SUCCESS: {
-      console.log("in success");
+      console.log("in GET_PRODUCT_DETAILS_SUCCESS reducer");
       const { productDetails } = action.payload;
-      console.log("productDetails", productDetails);
       return {
         ...state,
         ...productDetails,
-        isFetching: false,
-        debug: "SUCCESSS"
       };
     }
     default:
