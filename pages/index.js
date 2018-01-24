@@ -8,19 +8,24 @@ import Page from "../components/Page";
 
 export class Counter extends Component {
   static async getInitialProps({ store, isServer }) {
-    await store.dispatch(await fetchData()) // comment for client side render
+    console.time("getInitialProps");
+    await new Promise(res =>
+      setTimeout(() => {
+        console.timeEnd("getInitialProps");
+        res({});
+      }, 5000)
+    );
+    return await store.dispatch(await fetchData()); // comment for client side render
   }
 
   componentDidMount() {
     // this.props.fetchData();  // uncomment for client side render
   }
 
-
   render() {
-    return <Page title="Index Page"/>;
+    return <Page title="Index Page" />;
   }
 }
-
 
 const mapDispatchToProps = dispatch => {
   return {
